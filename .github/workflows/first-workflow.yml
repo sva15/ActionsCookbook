@@ -16,8 +16,9 @@ jobs:
     steps:
       - name: Greet the Author
         run: |
-          echo " Hello 👋 ${{ github.actor}}"
+          echo " Hello ${{ vars.WHO_TO_GREET }}👋 from ${{ github.actor}}"
           echo " You are currently in '${{ github.ref}}'"
+          echo " My Secret is ${{ secrets.MY_SECRET }}
 
       - name: Checkout
         uses: actions/checkout@v4
