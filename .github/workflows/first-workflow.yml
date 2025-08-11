@@ -1,0 +1,27 @@
+# My First Workflow to create with editor
+name: First Workflow
+
+on:
+  push:
+    branches: 
+      - main
+      - develop
+  workflow_dispatch:
+
+jobs:
+  first_job:
+    name: My First Job
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Greet the Author
+        run: |
+          echo " Hello 👋 ${{ github.actor}}"
+          echo " You are currently in '${{ github.ref}}'"
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Display file structure
+        run: tree
+    
